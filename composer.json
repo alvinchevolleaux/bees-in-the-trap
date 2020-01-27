@@ -1,0 +1,28 @@
+{
+    "name": "alvinchevolleaux/chip-test",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alvin Chevolleaux",
+            "email": "alvin@chevolleaux.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "BeesInTheTrap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    }
+}
