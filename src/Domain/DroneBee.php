@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BeesInTheTrap\Domain;
 
 
-final class DroneBee extends Bee
+final class DroneBee implements Bee
 {
     private $hitPoints;
 
@@ -22,5 +22,10 @@ final class DroneBee extends Bee
     public function receiveHit(): void
     {
         $this->hitPoints -= 12;
+    }
+
+    public function isAlive(): bool
+    {
+        return $this->hitPoints > 0;
     }
 }
