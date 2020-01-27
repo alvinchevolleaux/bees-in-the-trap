@@ -7,18 +7,36 @@ use PHPUnit\Framework\TestCase;
 
 class BeeTest extends TestCase
 {
-    public function testQueenStats() {
+    public function testQueenStats()
+    {
+
+        $initialHitPoints = 100;
+
         $queenBee = BeeFactory::getBee(BeeFactory::QUEEN);
-        $this->assertEquals(100, $queenBee->getHitPoints());
+        $this->assertEquals($initialHitPoints, $queenBee->getHitPoints());
+        $queenBee->receiveHit();
+        $this->assertEquals($initialHitPoints - 8, $queenBee->getHitPoints());
     }
 
-    public function testWorkerStats() {
+    public function testWorkerStats()
+    {
+
+        $initialHitPoints = 75;
+
         $workerBee = BeeFactory::getBee(BeeFactory::WORKER);
-        $this->assertEquals(75, $workerBee->getHitPoints());
+        $this->assertEquals($initialHitPoints, $workerBee->getHitPoints());
+        $workerBee->receiveHit();
+        $this->assertEquals($initialHitPoints - 10, $workerBee->getHitPoints());
     }
 
-    public function testDroneStats() {
+    public function testDroneStats()
+    {
+
+        $initialHitPoints = 50;
+
         $droneBee = BeeFactory::getBee(BeeFactory::DRONE);
-        $this->assertEquals(50, $droneBee->getHitPoints());
+        $this->assertEquals($initialHitPoints, $droneBee->getHitPoints());
+        $droneBee->receiveHit();
+        $this->assertEquals($initialHitPoints - 12, $droneBee->getHitPoints());
     }
 }
