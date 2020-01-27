@@ -4,7 +4,7 @@
 namespace BeesInTheTrap\Domain;
 
 
-class BeeFactory
+final class BeeFactory
 {
     const QUEEN = 'queen';
     const DRONE = 'drone';

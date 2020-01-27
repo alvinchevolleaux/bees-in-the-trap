@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BeesInTheTrap\Domain;
 
 
-class QueenBee extends Bee
+final class QueenBee extends Bee
 {
     private $hitPoints;
 
@@ -21,6 +21,6 @@ class QueenBee extends Bee
 
     public function receiveHit(): void
     {
-        $this->hitPoints -= 15;
+        $this->hitPoints -= 8;
     }
 }

@@ -15,7 +15,7 @@ class BeeTest extends TestCase
         $queenBee = BeeFactory::getBee(BeeFactory::QUEEN);
         $this->assertEquals($initialHitPoints, $queenBee->getHitPoints());
         $queenBee->receiveHit();
-        $this->assertEquals($initialHitPoints - 8, $queenBee->getHitPoints());
+        $this->assertEquals(8, $initialHitPoints - $queenBee->getHitPoints());
     }
 
     public function testWorkerStats()
@@ -26,7 +26,7 @@ class BeeTest extends TestCase
         $workerBee = BeeFactory::getBee(BeeFactory::WORKER);
         $this->assertEquals($initialHitPoints, $workerBee->getHitPoints());
         $workerBee->receiveHit();
-        $this->assertEquals($initialHitPoints - 10, $workerBee->getHitPoints());
+        $this->assertEquals(10, $initialHitPoints - $workerBee->getHitPoints());
     }
 
     public function testDroneStats()
@@ -37,6 +37,6 @@ class BeeTest extends TestCase
         $droneBee = BeeFactory::getBee(BeeFactory::DRONE);
         $this->assertEquals($initialHitPoints, $droneBee->getHitPoints());
         $droneBee->receiveHit();
-        $this->assertEquals($initialHitPoints - 12, $droneBee->getHitPoints());
+        $this->assertEquals(12, $initialHitPoints - $droneBee->getHitPoints());
     }
 }
