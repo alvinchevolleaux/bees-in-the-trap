@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BeesInTheTrap\Domain;
 
-
 class Hive
 {
     private BeeCollectionImmutable $bees;
@@ -14,12 +13,13 @@ class Hive
         $this->bees = $bees;
     }
 
-    public function getBees() : BeeCollectionImmutable {
+    public function getBees() : BeeCollectionImmutable
+    {
         return $this->bees;
     }
 
-    public function hiveDestroyed() : bool {
-
+    public function hiveDestroyed() : bool
+    {
         if (!$this->getQueenBee()->isAlive()) {
             return true;
         }
@@ -34,7 +34,8 @@ class Hive
         return true;
     }
 
-    private function getQueenBee() : QueenBee {
+    private function getQueenBee() : QueenBee
+    {
         foreach ($this->bees as $bee) {
             if ($bee instanceof QueenBee) {
                 return $bee;

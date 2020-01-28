@@ -3,3 +3,4 @@
 /vendor/
 phpunit.xml
 docker-compose.yml
+.php_cs.cache

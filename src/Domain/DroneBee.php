@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BeesInTheTrap\Domain;
 
-
 final class DroneBee implements Bee
 {
     const HIT_VALUE = 12;

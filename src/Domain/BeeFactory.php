@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace BeesInTheTrap\Domain;
-
 
 final class BeeFactory
 {
@@ -10,7 +10,8 @@ final class BeeFactory
     const DRONE = 'drone';
     const WORKER = 'worker';
 
-    public static function getBee(string $type) : Bee {
+    public static function getBee(string $type) : Bee
+    {
         switch ($type) {
             case static::QUEEN:
                 return new QueenBee();

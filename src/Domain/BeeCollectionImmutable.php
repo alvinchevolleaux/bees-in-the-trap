@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
 
 namespace BeesInTheTrap\Domain;
 
-
-use http\Exception\RuntimeException;
+use RuntimeException;
 use PHPUnit\Exception;
 use Webmozart\Assert\Assert;
 
@@ -55,7 +55,8 @@ class BeeCollectionImmutable implements \Iterator, \Countable
         return \count($this->bees);
     }
 
-    public function getItem(int $offset) : Bee {
+    public function getItem(int $offset) : Bee
+    {
         return $this->bees[$offset];
     }
 }

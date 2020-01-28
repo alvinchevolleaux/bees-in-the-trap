@@ -1,17 +1,8 @@
 <?php
 
-
 namespace Test;
 
-
-use BeesInTheTrap\Domain\Bee;
-use BeesInTheTrap\Domain\BeeCollectionImmutable;
-use BeesInTheTrap\Domain\DroneBee;
-use BeesInTheTrap\Domain\Game;
 use BeesInTheTrap\Domain\GameFactory;
-use BeesInTheTrap\Domain\Hive;
-use BeesInTheTrap\Domain\QueenBee;
-use BeesInTheTrap\Domain\WorkerBee;
 use PHPUnit\Framework\TestCase;
 
 class GameTest extends TestCase

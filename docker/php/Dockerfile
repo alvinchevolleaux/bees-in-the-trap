@@ -11,5 +11,3 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 COPY . /usr/src/app
 
 WORKDIR /usr/src/app
-
-#ENTRYPOINT ["php", "bin/app.php" ]

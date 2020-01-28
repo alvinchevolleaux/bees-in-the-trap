@@ -7,5 +7,6 @@ services:
       dockerfile: docker/php/Dockerfile
     network_mode: host
     user: "${UID}:${GID}"
+    command: ./beesinthetrap --auto
     volumes:
       - .:/usr/src/app
