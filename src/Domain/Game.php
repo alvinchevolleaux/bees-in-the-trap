@@ -4,27 +4,45 @@ declare(strict_types=1);
 
 namespace BeesInTheTrap\Domain;
 
-use Zend\Math\Rand;
-
 class Game
 {
-    private $hive;
+    private Hive $hive;
 
-    public function __construct()
+    private bool $gameOver = false;
+
+    public function __construct(Hive $hive)
     {
-        $this->hive = HiveFactory::getHive();
+        $this->hive = $hive;
     }
 
-    public function takeTurn() {
-        $bee = $this->getRandomBee();
+    public function gameOver() : bool {
+        return $this->gameOver;
+    }
+
+    public function takeTurn() : string {
+
+        if ($this->gameOver) {
+            throw new \RuntimeException("Game is over!");
+        }
+
+        $bee = $this->getRandomLivingBee();
+        $damage = $bee->hit();
+
+        if ($this->hive->hiveDestroyed()) {
+            $this->gameOver = true;
+        }
+
+        return sprintf(
+            "Direct Hit. You took %d hit points from a %s", $damage, $bee->type()
+        );
     }
 
     private function getRandomLivingBee() : Bee {
         do {
             $bees = $this->hive->getBees();
-            $beeNumber = Rand::getInteger(0, count($bees));
+            $beeNumber = random_int(0, count($bees) - 1);
             /** @var Bee $bee */
-            $bee = $bees[$beeNumber];
+            $bee = $bees->getItem($beeNumber);
         } while (!$bee->isAlive());
 
         return $bee;

@@ -23,5 +23,8 @@ There are 5 Worker Bees.
 
 Drone Bee
 Drone Bees have a lifespan of 50 Hit Points.
-When a Drone Bee is hit, 12 Hit Points are deducted from his lifespan.
+When a Drone Bee is hit, 12 Hit Points are deducted from his lifespan.50
 There are 8 Drone Bees.
+
+
+40 + 40 + 13

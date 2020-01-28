@@ -7,11 +7,20 @@ namespace BeesInTheTrap\Domain;
 
 final class DroneBee implements Bee
 {
-    private $hitPoints;
+    const HIT_VALUE = 12;
+    const HIT_POINTS = 50;
+
+    private int $hitPoints;
+
+    public function type(): string
+    {
+        return "Drone Bee";
+    }
+
 
     public function __construct()
     {
-        $this->hitPoints = 50;
+        $this->hitPoints = self::HIT_POINTS;
     }
 
     public function getHitPoints() : int
@@ -19,9 +28,10 @@ final class DroneBee implements Bee
         return $this->hitPoints;
     }
 
-    public function receiveHit(): void
+    public function hit(): int
     {
-        $this->hitPoints -= 12;
+        $this->hitPoints -= self::HIT_VALUE;
+        return self::HIT_VALUE;
     }
 
     public function isAlive(): bool

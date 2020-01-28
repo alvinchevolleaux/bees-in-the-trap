@@ -7,7 +7,7 @@ namespace BeesInTheTrap\Domain;
 
 class Hive
 {
-    private $bees;
+    private BeeCollectionImmutable $bees;
 
     public function __construct(BeeCollectionImmutable $bees)
     {
@@ -19,6 +19,11 @@ class Hive
     }
 
     public function hiveDestroyed() : bool {
+
+        if (!$this->getQueenBee()->isAlive()) {
+            return true;
+        }
+
         /** @var Bee $bee */
         foreach ($this->bees as $bee) {
             if ($bee->isAlive()) {
@@ -27,5 +32,15 @@ class Hive
         }
 
         return true;
+    }
+
+    private function getQueenBee() : QueenBee {
+        foreach ($this->bees as $bee) {
+            if ($bee instanceof QueenBee) {
+                return $bee;
+            }
+        }
+
+        throw new \RuntimeException("Could not find Queen Bee in Hive");
     }
 }

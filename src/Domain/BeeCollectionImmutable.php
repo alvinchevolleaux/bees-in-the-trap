@@ -12,7 +12,7 @@ class BeeCollectionImmutable implements \Iterator, \Countable
 {
     private $bees;
 
-    private $position = 0;
+    private int $position = 0;
 
     public function __construct(array $bees)
     {
@@ -55,5 +55,7 @@ class BeeCollectionImmutable implements \Iterator, \Countable
         return \count($this->bees);
     }
 
-
+    public function getItem(int $offset) : Bee {
+        return $this->bees[$offset];
+    }
 }
