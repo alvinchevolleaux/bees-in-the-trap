@@ -7,6 +7,7 @@ services:
       dockerfile: docker/php/Dockerfile
     network_mode: host
     user: "${UID}:${GID}"
-    command: ./beesinthetrap --auto
+    command: ["/bin/bash", "/etc/startup.sh"]
     volumes:
       - .:/usr/src/app
+      - ./docker/php/startup.sh:/etc/startup.sh
