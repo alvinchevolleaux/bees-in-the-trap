@@ -40,7 +40,7 @@ class RunGameCommand extends Command
         $helper = $this->getHelper('question');
         $question = new Question('Type hit to take your next turn: ', false);
 
-        $i = 1;
+        $i = 0;
         do {
 
             if (!$input->getOption('auto')) {
