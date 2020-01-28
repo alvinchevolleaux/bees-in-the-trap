@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace BeesInTheTrap\Domain;
 
 use RuntimeException;
-use PHPUnit\Exception;
 use Webmozart\Assert\Assert;
 
 class BeeCollectionImmutable implements \Iterator, \Countable
@@ -18,7 +17,7 @@ class BeeCollectionImmutable implements \Iterator, \Countable
     {
         try {
             Assert::allIsInstanceOf($bees, Bee::class);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new RuntimeException(sprintf("Invalid array, all items must be of type %s", Bee::class));
         }
 
